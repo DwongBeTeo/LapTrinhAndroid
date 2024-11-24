@@ -8,6 +8,7 @@ import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -16,6 +17,8 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import kotlin.Result;
+
 public class Bai4 extends AppCompatActivity {
     //khai báo giao diện
     EditText edtName;
@@ -23,6 +26,7 @@ public class Bai4 extends AppCompatActivity {
     RadioButton rbCollege,rbUniversity;
     CheckBox cbC,cbJava,cbJS;
     Button btnSave;
+    TextView tvInfor;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +47,7 @@ public class Bai4 extends AppCompatActivity {
         cbJava=findViewById(R.id.cbJava);
         cbJS=findViewById(R.id.cbJS);
         btnSave=findViewById(R.id.btnSave);
+        tvInfor=findViewById(R.id.tvInfor);
         //xử lý các nút khi nhấn lưu dữ liệu
         btnSave.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -60,10 +65,10 @@ public class Bai4 extends AppCompatActivity {
                 String favoriteLanguages ="";
                 if (cbC.isChecked()){
                     favoriteLanguages+="Lập trình C";
-                } else if (cbJava.isChecked()) {
-                    favoriteLanguages+="Lập trình Java";
-                } else if (cbJS.isChecked()) {
-                    favoriteLanguages+="Lập trình JavaScript";
+                }if (cbJava.isChecked()) {
+                    favoriteLanguages+=" Lập trình Java";
+                }if (cbJS.isChecked()) {
+                    favoriteLanguages+=" Lập trình JavaScript";
                 }
                 // Kiểm tra dữ liệu
                 if (name.isEmpty()){
@@ -76,7 +81,7 @@ public class Bai4 extends AppCompatActivity {
                     String Result ="Họ tên: "+name +"\n"
                                    +"Hình thức giáo dục: "+educationLevel +"\n"
                                    +"Ngôn ngữ lập trình: "+favoriteLanguages +"\n";
-                    Toast.makeText(Bai4.this, Result, Toast.LENGTH_SHORT).show();
+                    tvInfor.setText(Result);
                 }
 
             }

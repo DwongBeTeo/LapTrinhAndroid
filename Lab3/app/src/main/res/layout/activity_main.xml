@@ -25,4 +25,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Bai3" />
+
+    <Button
+        android:id="@+id/btnBai3Remake"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bai3Remake" />
 </LinearLayout>

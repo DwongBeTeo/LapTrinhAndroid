@@ -13,8 +13,8 @@
         android:text="1"
         android:textColor="#000000"
         android:textSize="20sp"
-        app:layout_constraintEnd_toStartOf="@+id/box5"
         app:layout_constraintBottom_toTopOf="@+id/box5"
+        app:layout_constraintEnd_toStartOf="@+id/box5"
         app:layout_constraintStart_toStartOf="parent" />
 
     <!-- Ô 2 -->
@@ -27,9 +27,10 @@
         android:text="2"
         android:textColor="#FFFFFF"
         android:textSize="20sp"
-        app:layout_constraintStart_toEndOf="@+id/box5"
         app:layout_constraintBottom_toTopOf="@+id/box5"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.709"
+        app:layout_constraintStart_toEndOf="@+id/box5" />
 
     <!-- Ô 3 -->
     <TextView

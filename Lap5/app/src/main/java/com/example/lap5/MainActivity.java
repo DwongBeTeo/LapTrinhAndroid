@@ -1,7 +1,9 @@
-package com.example.myapplication;
+package com.example.lap5;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -9,8 +11,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
 
+public class MainActivity extends AppCompatActivity {
+     Button moListViewArr, moArrayList, moListViewObject, moBai5_1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,13 +24,24 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        findViewById(R.id.btnBai1).setOnClickListener(v -> openExerciseActivity(Bai1.class));
-        findViewById(R.id.btnBai2).setOnClickListener(v -> openExerciseActivity(Bai2.class));
-        findViewById(R.id.btnBai3).setOnClickListener(v -> openExerciseActivity(Bai3.class));
-        findViewById(R.id.btnBai3Remake).setOnClickListener(v -> openExerciseActivity((Bai3Remake.class)));
     }
-    private void openExerciseActivity(Class<?> activityClass){
-        Intent intent = new Intent(this,activityClass);
+    public void moListViewArr(View view){
+        Intent intent = new Intent (MainActivity.this, ListViewArray.class);
+        startActivity(intent);
+    }
+    public void moArrayList(View view){
+        Intent intent = new Intent (MainActivity.this, ListViewList.class);
+        startActivity(intent);
+    }
+
+
+    public void moListViewObject(View view) {
+        Intent intent = new Intent (MainActivity.this, ListViewObject.class);
+        startActivity(intent);
+    }
+
+    public void moBai5_1(View view) {
+        Intent intent = new Intent (MainActivity.this, Lap5_1.class);
         startActivity(intent);
     }
 }

@@ -55,7 +55,7 @@ public class Lap5_1 extends AppCompatActivity {
 
         // Tạo danh sách nhân viên
         nhanVienList = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, nhanVienList);
+        adapter = new ArrayAdapter<>(Lap5_1.this, android.R.layout.simple_list_item_1, nhanVienList);
         lvNhanVien.setAdapter(adapter);
 
         //xử lý nút thêm mới
@@ -71,6 +71,8 @@ public class Lap5_1 extends AppCompatActivity {
                     String nhanVien = "Ma: " + maSo + " | HoTen: " + hoTen + " | SoDT: " + soDienThoai;
                     //lưu thông tin nhân viên vào danh sách
                     nhanVienList.add(nhanVien);
+                    // Cập nhật lại ListView
+                    adapter.notifyDataSetChanged();
                     //hiển thị thông tin nhân viên vừa mới lưu
                     tvNhanVien.setText(nhanVien);
                     // Xóa các Thong tin nhập liệu
@@ -87,7 +89,7 @@ public class Lap5_1 extends AppCompatActivity {
                 String nhanVien = (String) parent.getItemAtPosition(position);
 
                 // Tách thông tin nhân viên thành các phần riêng biệt
-                //split(" \\| "): Tách chuỗi nhanVien thành một mảng nhỏ hơn, dựa trên ký tự phân cách " | " .
+                //split(" \\| "): Tách chuỗi nhanVien thành một mảng nhỏ hơn, dựa trên ký tự phân cách " | "
                 String[] info = nhanVien.split("\\| ");
 
                 // Loại bỏ phần mô tả không cần thiết
@@ -100,6 +102,19 @@ public class Lap5_1 extends AppCompatActivity {
                 edtHoTen.setText(hoTen);
                 numSDT.setText(soDT);
             }
+        });
+        // Xóa nhân viên khi long click
+        lvNhanVien.setOnItemLongClickListener((parent, view, position, id) -> {
+            // Xác nhận xóa nhân viên
+            String nhanVien = nhanVienList.get(position);
+            Toast.makeText(Lap5_1.this, "Đã xóa: " + nhanVien, Toast.LENGTH_SHORT).show();
+
+            // Xóa nhân viên khỏi danh sách
+            nhanVienList.remove(position);
+
+            // Cập nhật lại ListView
+            adapter.notifyDataSetChanged();
+            return true; // Trả về true để xử lý sự kiện long click
         });
     }
 
